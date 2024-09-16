@@ -18,6 +18,7 @@ git clone https://github.com/plotly/dash-sample-apps
 cd dash-sample-apps/apps/dash-clinical-analytics
 python3 -m virtualenv venv
 
+
 ```
 In Unix system:
 ```
