@@ -41,9 +41,8 @@ Run this app locally with:
 python app.py
 ```
 
-## Screenshot
 
-![screenshot](img/screencapture.png)
+
 
 ## Resources
 
