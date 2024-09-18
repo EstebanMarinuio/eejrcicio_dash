@@ -1,3 +1,13 @@
+TRABAJO GRUPO #5 **
+Integrantes:
+
+Ricardo Alfredo Borja Quinteros
+Kevin Santiago Lopez Coral
+Jose Antonio Sanchez Sanchez
+Jerson Esteban Marin Nicolalde
+
+
+
 ## Requirements
 * Python 3
 
