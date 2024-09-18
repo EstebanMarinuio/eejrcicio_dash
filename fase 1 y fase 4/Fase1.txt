@@ -1,0 +1,27 @@
+1. ?Como estructuraran el Dashboard?
+El dashboard estara dividido en secciones que permitan visualizar distintos aspectos de los datos clinicos. La estructura basica sera:
+.	Encabezado o tarjeta de descripcion: Incluye un titulo y una breve descripcion del proposito del tablero. Esto se logra con el uso de componentes html.Div y html.H3/H5 como en la funcion description_card.
+.	Menu para filtros: Un menu desplegable permitira filtrar los datos por clinica y por la fuente de admision de los pacientes, por lo que usaremos componentes como dcc.Dropdown. Tambien habra opciones para seleccionar rangos de fechas y horas, utilizando dcc.DatePickerRange y dcc.Slider para hacer mas dinamico el analisis.
+.	Graficos interactivos: Cada seccion del tablero estara dedicada a graficos visuales que muestran:
+o	Volumen de pacientes por clinica.
+o	Tiempo de espera por departamento.
+o	Calificacion de atencion por departamento.
+Estos graficos seran implementados usando dcc.Graph y estaran conectados a callbacks para que se actualicen segun los filtros seleccionados.
+.	Secciones de analisis temporal: Habra graficos que mostraran la distribucion de los pacientes segun el dia de la semana y la hora de check-in, utilizando datos procesados como "Check-In Time", "Days of Wk" y "Check-In Hour".
+El layout principal sera administrado con html.Div para organizar las secciones, donde cada una tendra su propio contenedor.
+2. ?Que componentes y estilos piensan usar y por que?
+Componentes:
+.	html.Div y html.Hx: Para crear la estructura del dashboard y anadir titulos y descripciones.
+.	dcc.Dropdown: Para desplegar listas de seleccion que permitan al usuario filtrar los datos por clinica o fuente de admision.
+.	dcc.Graph: Para visualizar graficos interactivos como heatmaps, histogramas, y graficos de barras que muestren las estadisticas clinicas.
+.	dcc.Slider: Para filtrar datos por intervalos de tiempo, por ejemplo, eligiendo un rango de horas.
+.	dcc.DatePickerRange: Para seleccionar un rango de fechas que permita filtrar el analisis temporal.
+Estilos:
+.	Utilizaremos un diseno responsivo, es decir, que se adapte a cualquier tipo de pantalla para garantizar que el tablero sea accesible desde dispositivos moviles y pantallas de diferentes tamanos. Esto se logra utilizando meta-tags para el viewport y organizando los componentes de forma que se ajusten dinamicamente.
+.	Se implementara un esquema de colores claros para el fondo y colores diferenciados en los graficos para facilitar la lectura de los datos, utilizando librerias como Plotly que permiten una visualizacion clara y agradable.
+3. ?Que interacciones deben tener estos componentes?
+.	Menu desplegable interactivo (dcc.Dropdown): El menu desplegable para seleccionar clinicas y fuentes de admision sera interactivo y filtrara los graficos en tiempo real. Al cambiar una opcion, los graficos de volumen de pacientes, tiempo de espera y calificaciones de atencion se actualizaran automaticamente.
+.	Graficos interactivos (dcc.Graph): Los graficos permitiran hacer zoom, seleccionar rangos de datos, y al hacer clic en los graficos se podran actualizar otros componentes del dashboard. Por ejemplo, al seleccionar un intervalo de tiempo en un grafico de "Check-In Time", los demas graficos (como el de tiempo de espera) se filtraran automaticamente para ese rango.
+.	Rango de fechas y horas (dcc.DatePickerRange, dcc.Slider): Estos componentes permitiran limitar la visualizacion a un rango especifico de fechas u horas, lo que es util para ver como varian los datos en diferentes periodos. Al ajustar el slider de horas, los graficos se actualizaran para mostrar solo los datos correspondientes a las horas seleccionadas.
+Estas interacciones permitiran a los usuarios explorar los datos de manera intuitiva y obtener informacion valiosa sobre la operacion clinica en base a diferentes parametros.
+
