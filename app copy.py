@@ -75,20 +75,6 @@ def description_card():
         id="description-card",
         children=[
             html.H5("Análisis Clínicos"),
-               html.P(
-            children=[
-                "GRUPO 5",
-                html.Br(),
-                "Ricardo Alfredo Borja Quinteros", 
-                html.Br(),  # Salto de línea
-                "Kevin Santiago Lopez Coral",
-                html.Br(),  # Salto de línea
-                "Jose Antonio Sanchez Sanchez",
-                html.Br(),  # Salto de línea
-                "Jerson Esteban Marin Nicolalde"
-            ]
-        ),
-
             html.H3("Dashboard Análisis Clínicos"),
             html.Div(
                 id="intro",
