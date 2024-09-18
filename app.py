@@ -74,11 +74,11 @@ def description_card():
     return html.Div(
         id="description-card",
         children=[
-            html.H5("Clinical Analytics"),
-            html.H3("Welcome to the Clinical Analytics Dashboard"),
+            html.H5("Análisis Clínicos"),
+            html.H3("Dashboard Análisis Clínicos"),
             html.Div(
                 id="intro",
-                children="Explore clinic patient volume by time of day, waiting time, and care score. Click on the heatmap to visualize patient experience at different time points.",
+                children="En esta interfaz puede explorar el volumen de pacientes clinicos por fecha,clínica, lugar de origen, tiempo de espera. Use el mapa de calor para explorar la data correspondiente a los pacientes.",
             ),
         ],
     )
@@ -99,7 +99,7 @@ def generate_control_card():
                 value=clinic_list[0],
             ),
             html.Br(),
-            html.P("Select Check-In Time"),
+            html.P("Seleccionar tiempo de Check-Inn"),
             dcc.DatePickerRange(
                 id="date-picker-select",
                 start_date=dt(2014, 1, 1),
@@ -566,7 +566,7 @@ app.layout = html.Div(
                         dcc.Graph(id="patient_volume_hm"),
                         html.Div(
                             id="reset-btn-outer",
-                            children=html.Button(id="reset-btn", children="Show All", n_clicks=0), 
+                            children=html.Button(id="reset-btn", children="Mostrar todo", n_clicks=0), 
                         ),
                     ],
                 ),
@@ -574,7 +574,7 @@ app.layout = html.Div(
                 html.Div(
                     id="wait_time_card",
                     children=[
-                        html.B("Patient Wait Time and Satisfactory Scores"),
+                        html.B("Tiempo de espera del paciente y calificaciones de satisfacción"),
                         html.Hr(),
                         html.Div(id="wait_time_table", children=initialize_table()),
                     ],
