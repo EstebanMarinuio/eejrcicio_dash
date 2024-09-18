@@ -1,0 +1,36 @@
+INTRODUCCION
+Es una aplicación interactiva basada en Dash para el análisis y visualización de datos relacionados con la atención médica, específicamente en áreas como el tiempo de espera de los pacientes y su nivel de satisfacción en diferentes departamentos de un hospital o clínica. Dash es una herramienta popular para la creación de aplicaciones web interactivas sin necesidad de conocimientos avanzados en desarrollo web. A través del uso de componentes como html.Div, dcc.Graph, y callbacks, el código permite la creación de gráficos dinámicos que responden a la interacción del usuario, como la selección de fechas, departamentos, y otros parámetros.
+El núcleo de esta aplicación radica en la actualización de gráficos y tablas en tiempo real, reflejando las variaciones en los datos mediante el uso de callbacks. Los callbacks son funciones que permiten la interactividad entre los componentes de la aplicación y permiten que los gráficos y tablas se actualicen automáticamente en función de las entradas del usuario.
+Este código también utiliza Plotly para generar gráficos interactivos, que ayudan a visualizar las métricas clave como los tiempos de espera y los puntajes de atención. Además, se hace uso de bibliotecas como pandas para manipular los datos, agregarlos y filtrarlos según las selecciones realizadas. Todo esto forma una interfaz visual rica y fácil de usar, diseñada para ayudar a los administradores y responsables de tomar decisiones a mejorar la eficiencia y calidad del servicio en las áreas de atención al paciente.
+En resumen, el código aprovecha la capacidad de Dash para construir aplicaciones analíticas que permiten la exploración interactiva de grandes conjuntos de datos, enfocándose en la usabilidad y el acceso en tiempo real a la información clave.
+
+DESARROLLO
+Funciones Clave
+initialize_table():
+Inicializa una tabla vacía con encabezados de columna para mostrar los departamentos, el tiempo de espera y la puntuación de cuidado.
+Utiliza una función auxiliar para generar las filas de la tabla basadas en los departamentos disponibles.
+generate_patient_table(figure_list, departments, wait_time_xrange, score_xrange):
+Crea una tabla de pacientes basada en las figuras generadas para cada departamento, con un rango de tiempo de espera y rango de puntuación.
+Actualiza las filas con los gráficos y oculta las filas correspondientes a los departamentos no seleccionados.
+create_table_figure(department, filtered_df, category, category_xrange, selected_index):
+Crea gráficos específicos para un departamento basado en el tiempo de espera o la puntuación de satisfacción.
+Genera los gráficos usando datos agrupados por el número de encuentro y los personaliza con detalles como el tiempo de check-in y las puntuaciones.
+Callbacks:
+update_heatmap(): Actualiza el mapa de calor de volumen de pacientes según las fechas, el tipo de admisión y las selecciones del usuario.
+update_table(): Actualiza la tabla de tiempos de espera y puntuaciones de cuidado basándose en los datos seleccionados en el gráfico de calor.
+Componentes de la Interfaz
+Columna Izquierda: Contiene la tarjeta de control para seleccionar parámetros como las fechas, el nombre de la clínica, y el tipo de admisión.
+Columna Derecha: Muestra un gráfico de mapa de calor del volumen de pacientes por día de la semana.
+Una tabla dinámica que muestra los tiempos de espera y las puntuaciones de cuidado por departamento, actualizada interactivamente según las selecciones del usuario.
+Procesos Interactivos
+El callback de actualización del heatmap (update_heatmap) permite que el gráfico se actualice con base en los filtros seleccionados por el usuario.
+El callback de actualización de la tabla (update_table) ajusta los gráficos para mostrar los tiempos de espera y las puntuaciones basados en la selección del mapa de calor, así como otras interacciones del usuario.
+Este tipo de aplicación sería útil para monitorear en tiempo real el flujo de pacientes y los niveles de satisfacción, proporcionando una herramienta visual para mejorar la gestión de los recursos y la eficiencia operativa en un hospital.
+
+CONCLUSIONES:
+Interfaz dinámica y personalizada: El código proporciona una interfaz dinámica para mostrar información sobre los tiempos de espera de los pacientes y las puntuaciones de satisfacción en diferentes departamentos de una clínica. Esto permite a los usuarios interactuar con los datos y visualizar resultados en tiempo real, lo cual es útil para la gestión y la mejora de la atención al paciente.
+Generación de gráficos en tiempo real: Mediante el uso de la biblioteca Plotly, los gráficos de tiempos de espera y de puntuación de satisfacción se generan dinámicamente a partir de datos filtrados según parámetros como fechas, departamentos, y horas de atención. La capacidad de actualizar los gráficos en función de las interacciones del usuario (clics en el heatmap, selección de datos, etc.) mejora la experiencia del usuario.
+Filtrado eficiente de datos: El código filtra de manera efectiva los datos de los pacientes por clínica, fuente de admisión, hora y departamento. Esto permite obtener resultados específicos para la toma de decisiones. Además, el sistema destaca puntos de datos basados en la interacción con el heatmap, mostrando los detalles de pacientes seleccionados.
+
+Diseño modular: El código está dividido en funciones modulares, como initialize_table, generate_patient_table, y create_table_figure, lo que facilita la legibilidad, el mantenimiento y la escalabilidad del sistema. Cada función tiene una responsabilidad clara, lo que también facilita su depuración y actualización.
+Interactividad del usuario: La aplicación ofrece múltiples formas de interacción, como la selección de fechas y la selección de clínicas. Además, permite hacer clic en áreas específicas del heatmap para ver datos más detallados sobre tiempos de espera y puntuaciones de satisfacción en los departamentos.
